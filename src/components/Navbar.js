@@ -1,5 +1,6 @@
 import logo from '../logo_3.png';
-import fullLogo from '../full_logo.png';
+// import fullLogo from '../full_logo.png';
+import icaruslogo1 from '../icaruslogo1.png';
 import {
   BrowserRouter as Router,
   Switch,
@@ -75,9 +76,10 @@ async function connectWebsite() {
           <ul className='flex items-end justify-between py-3 bg-transparent text-white pr-5'>
           <li className='flex items-end ml-5 pb-2'>
             <Link to="/">
-            <img src={fullLogo} alt="" width={120} height={120} className="inline-block -mt-2"/>
+            {/* <img src={fullLogo} alt="" width={120} height={120} className="inline-block -mt-2"/> */}
+            <img src={icaruslogo1} alt="" width={60} height={60} className="inline-block -mt-2"/>
             <div className='inline-block font-bold text-xl ml-2'>
-              NFT Marketplace
+              Icarus Marketplace
             </div>
             </Link>
           </li>
@@ -94,11 +96,11 @@ async function connectWebsite() {
               }
               {location.pathname === "/sellNFT" ? 
               <li className='border-b-2 hover:pb-0 p-2'>
-                <Link to="/sellNFT">List My NFT</Link>
+                <Link to="/sellNFT">Sell</Link>
               </li>
               :
               <li className='hover:border-b-2 hover:pb-0 p-2'>
-                <Link to="/sellNFT">List My NFT</Link>
+                <Link to="/sellNFT">Sell</Link>
               </li>              
               }              
               {location.pathname === "/profile" ? 

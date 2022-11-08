@@ -1,5 +1,5 @@
 import Navbar from "./Navbar";
-import axie from "../tile.jpeg";
+// import axie from "../tile.jpeg";
 import { useLocation, useParams } from 'react-router-dom';
 import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
@@ -53,12 +53,12 @@ async function buyNFT(tokenId) {
         //Pull the deployed contract instance
         let contract = new ethers.Contract(MarketplaceJSON.address, MarketplaceJSON.abi, signer);
         const salePrice = ethers.utils.parseUnits(data.price, 'ether')
-        updateMessage("Buying the NFT... Please Wait (Upto 5 mins)")
+        updateMessage("Buying the Product... Please Wait (Upto 5 mins)")
         //run the executeSale function
         let transaction = await contract.executeSale(tokenId, {value:salePrice});
         await transaction.wait();
 
-        alert('You successfully bought the NFT!');
+        alert('You successfully bought the Product!');
         updateMessage("");
     }
     catch(e) {
@@ -94,8 +94,8 @@ async function buyNFT(tokenId) {
                     </div>
                     <div>
                     { currAddress == data.owner || currAddress == data.seller ?
-                        <button className="enableEthereumButton bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm" onClick={() => buyNFT(tokenId)}>Buy this NFT</button>
-                        : <div className="text-emerald-700">You are the owner of this NFT</div>
+                        <button className="enableEthereumButton bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm" onClick={() => buyNFT(tokenId)}>Buy this product</button>
+                        : <div className="text-emerald-700">You are the owner of this product</div>
                     }
                     
                     <div className="text-green text-center mt-3">{message}</div>
